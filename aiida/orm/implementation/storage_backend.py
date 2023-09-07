@@ -9,6 +9,7 @@
 ###########################################################################
 """Generic backend related objects"""
 import abc
+import pathlib
 from typing import TYPE_CHECKING, Any, ContextManager, List, Optional, Sequence, TypeVar, Union
 
 if TYPE_CHECKING:
@@ -286,6 +287,38 @@ class StorageBackend(abc.ABC):  # pylint: disable=too-many-public-methods
 
         :param full: flag to perform operations that require to stop using the profile to be maintained.
         :param dry_run: flag to only print the actions that would be taken without actually executing them.
+        """
+
+    @abc.abstractmethod
+    def backup(
+        self,
+        path: pathlib.Path,
+        remote: Optional[str] = None,
+        prev_backup: Optional[pathlib.Path] = None,
+        **kwargs
+    ) -> bool:
+        """Create a backup of the storage contents.
+
+        By default, automatically manages incremental/delta backup: creates a subfolder in the specified path
+        and if the subfolder already exists, creates an incremental backup from it.
+
+        :param path:
+            Path to where the backup will be created. If 'remote' is specified, must be an absolute path,
+            otherwise can be relative.
+
+        :param remote:
+            Remote host of the backup location. 'ssh' executable is called via subprocess and therefore remote
+            hosts configured for it are supported (e.g. via .ssh/config file).
+
+        :param prev_backup:
+            Path to the previous backup. Rsync calls will be hard-linked to this path, making the backup
+            incremental and efficient. If this is specified, the automatic folder management is not used.
+
+        :param kwargs:
+            * Executable paths, if not default.
+
+        :return:
+            True is successful and False if unsuccessful.
         """
 
     def get_info(self, detailed: bool = False) -> dict:
