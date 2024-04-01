@@ -120,7 +120,7 @@ pg8000==1.29.8
 pgsu==0.2.3
 pgtest==1.3.2
 pickleshare==0.7.5
-pillow==9.5.0
+pillow==10.3.0
 platformdirs==3.6.0
 plotly==5.15.0
 pluggy==1.0.0
