@@ -137,7 +137,7 @@ pydata-sphinx-theme==0.13.3
 pygments==2.15.1
 pymatgen==2023.9.2
 pympler==0.9
-pymysql==0.9.3
+pymysql==1.1.1
 pynacl==1.5.0
 pyparsing==2.4.7
 pyrsistent==0.19.3
