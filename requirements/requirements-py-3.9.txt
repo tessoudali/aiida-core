@@ -214,7 +214,7 @@ urllib3==2.0.3
 wcwidth==0.2.6
 webencodings==0.5.1
 websocket-client==1.6.0
-werkzeug==2.3.6
+werkzeug==3.0.6
 widgetsnbextension==4.0.7
 wrapt==1.15.0
 yarl==1.9.2
