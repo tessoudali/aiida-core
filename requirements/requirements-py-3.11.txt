@@ -48,7 +48,7 @@ emmet-core==0.57.1
 executing==1.2.0
 fastjsonschema==2.17.1
 flask==2.3.2
-flask-cors==3.0.10
+flask-cors==6.0.0
 flask-restful==0.3.10
 fonttools==4.40.0
 future==0.18.3
@@ -158,7 +158,7 @@ pyyaml==6.0
 pyzmq==25.1.0
 qtconsole==5.4.3
 qtpy==2.3.1
-requests==2.31.0
+requests==2.32.4
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rich==13.4.2
